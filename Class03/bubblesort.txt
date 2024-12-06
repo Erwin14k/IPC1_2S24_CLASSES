@@ -1,0 +1,16 @@
+Ejemplo de como funciona el método burbuja:
+
+Lista inicial: [5,3,8,4,2]
+
+Primera iteración:
+- Compara 5 con el 3 -> intercambia -> [3,5,8,4,2]
+- Compara 5 con el 8 -> no intercambia -> [3,5,8,4,2]
+- Compara 8 con el 4 -> intercambia -> [3,5,4,8,2]
+- Compara 8 con el 2 -> intercambia -> [3,5,4,2,8]
+
+Segunda iteración:
+- Compara 3 con el 5 -> no intercambia
+- Compara 5 con el 4 -> intercambia -> [3,4,5,2,8]
+- Compara 5 con el 2 -> intercambia -> [3,4,2,5,8]
+
+Esto sigue hasta tener la lista ordenada.

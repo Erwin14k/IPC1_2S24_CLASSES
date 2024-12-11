@@ -1,4 +1,4 @@
-package Class04_05.Product;
+package Class04_05_06.Product;
 
 public class Product {
     // Atributos

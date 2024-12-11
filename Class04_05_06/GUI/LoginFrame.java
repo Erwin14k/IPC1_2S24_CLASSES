@@ -1,4 +1,4 @@
-package Class04_05.GUI;
+package Class04_05_06.GUI;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -111,6 +111,7 @@ public class LoginFrame {
                 passwordTextField.getText().equals(adminData[1])){
                     JOptionPane.showMessageDialog(null,"<html><p style=\"color:green; font:20px; \">Incio de sesión exitoso</p></html>");
                     loginFrame.dispose();
+                    AdminView.adminView();
                 }else{
                     JOptionPane.showMessageDialog(null,"<html><p style=\"color:red; font:20px; \">Usuario/Contraseña incorrectos, intente de nuevo</p></html>");
                 }

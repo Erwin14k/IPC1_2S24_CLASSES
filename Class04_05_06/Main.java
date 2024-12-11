@@ -1,8 +1,6 @@
-package Class04_05;
+package Class04_05_06;
 
-import Class04_05.GUI.LoginFrame;
-//import Class04_05.Product.Product;
-//import Class04_05.Product.ProductDAO;
+import Class04_05_06.GUI.LoginFrame;
 
 public class Main {
     public static void main(String[] args){

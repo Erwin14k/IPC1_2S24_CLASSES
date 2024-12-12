@@ -1,4 +1,4 @@
-package Class04_05_06.GUI;
+package Class04_05_06_07.GUI;
 
 import java.awt.Color;
 import java.awt.Font;

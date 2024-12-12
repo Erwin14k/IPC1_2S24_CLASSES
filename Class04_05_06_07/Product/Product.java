@@ -1,6 +1,8 @@
-package Class04_05_06.Product;
+package Class04_05_06_07.Product;
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable{
     // Atributos
     private int productId; 
     private String name;

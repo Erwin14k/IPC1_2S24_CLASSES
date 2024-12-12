@@ -1,15 +1,18 @@
-package Class04_05_06.GUI;
+package Class04_05_06_07.GUI;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import Class04_05_06.Product.ProductDAO;
+import Class04_05_06_07.Product.ProductDAO;
 
 public class AdminView {
     public static void adminView(){
@@ -52,6 +55,18 @@ public class AdminView {
         saveButton.setFont(font1);
         saveButton.addActionListener(e->{
             // Todo lo de aquí se realiza con el botón de guardar
+            try{
+                System.out.println("Guardando datos......");
+                ProductDAO productHandler = ProductDAO.getInstance();
+                ObjectOutputStream savedData=new ObjectOutputStream(new FileOutputStream("Class04_05_06_07/data.ipc1"));
+                savedData.writeObject(productHandler.products);
+                savedData.close();
+                JOptionPane.showMessageDialog(null,"<html><p style=\"color:green; font:20px;\">Datos guardados con éxito!!!</p></html>");
+
+            }catch(Exception ex){
+                System.out.println("An error ocurred: "+ex);
+                JOptionPane.showMessageDialog(null,"<html><p style=\"color:red; font:20px\">Error al guardar datos...</p></html>");
+            }
         });
         adminView.add(saveButton);
 
@@ -70,6 +85,24 @@ public class AdminView {
             NewProductView.productCreationView();
         });
         adminView.add(newProductButton);
+
+
+        // Botón para dirigirnos a eliminar un  producto
+        JButton deleteProduct = new JButton("Eliminar Producto");
+        deleteProduct.setLayout(null);
+        deleteProduct.setVisible(true);
+        deleteProduct.setBounds(725,630,360,60);
+        deleteProduct.setBackground(Color.CYAN);
+        deleteProduct.setFont(font1);
+        deleteProduct.addActionListener(e->{
+            ProductDAO productHandler= ProductDAO.getInstance();
+            // Eliminamos un producto de prueba
+            productHandler.deleteProduct("Eliminar");
+            adminView.dispose();
+            
+
+        });
+        adminView.add(deleteProduct);
 
 
         // Botón para dirigirnos a crear un nuevo producto

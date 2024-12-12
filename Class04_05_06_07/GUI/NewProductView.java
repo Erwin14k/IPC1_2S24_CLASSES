@@ -1,4 +1,4 @@
-package Class04_05_06.GUI;
+package Class04_05_06_07.GUI;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -6,7 +6,10 @@ import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
+import Class04_05_06_07.Product.ProductDAO;
 
 public class NewProductView {
     public static void productCreationView(){
@@ -117,10 +120,23 @@ public class NewProductView {
         newProductButton.setFont(font1);
         newProductButton.addActionListener(e->{
             // Todo lo de aquí se realiza con el botón de crear producto
-            // Se cierrar el frame actual
-            productCreationFrame.dispose();
-            // Se regresa al módulo de administración
-            AdminView.adminView();
+
+            // Obtenemos nuestra instancia del manejador de productos
+            ProductDAO productHandler= ProductDAO.getInstance();
+            String [] result= productHandler.newProduct(Integer.parseInt(idTextField.getText()), 
+                            nameTextField.getText(), Double.parseDouble(priceTextField.getText()));
+
+            // Validamos si fue una creación exitosa
+            if(result[0].equals("1")){
+                JOptionPane.showMessageDialog(null,"<html> <p style=\"color:green; font:20px;\">"+result[1]+"</p></html>");
+                // Se cierrar el frame actual
+                productCreationFrame.dispose();
+                // Se regresa al módulo de administración
+                AdminView.adminView();
+            }else{
+                // Si la creación no fue exitosa, mostramos el mensaje de error
+                JOptionPane.showMessageDialog(null,"<html><p style=\" color:red; font:20px;\">"+result[1]+"</p></html>");
+            }
         });
         productCreationFrame.add(newProductButton);
 

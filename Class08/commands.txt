@@ -1,0 +1,14 @@
+# Comando para iniciar un proyecto en node (-y significa sí a todo)
+npm init -y
+
+#Comando para instalar dependencias antes de ejecutar un proyecto
+npm install
+
+# Comando para instalar algún paquete (Lo instala en las dependencias)
+npm install nombre_paquete
+
+# Comando para instalar algún paquete (Lo instala en las dependencias de desarrollo)
+npm install nombre_paquete -D
+
+#Comando para ejecturar el proyecto
+npm run nombre_script

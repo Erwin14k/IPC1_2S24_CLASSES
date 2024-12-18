@@ -9,11 +9,13 @@ module.exports.newProduct=async(req,res,next)=>{
         const newProduct=req.body;
         products.push(newProduct);
         res.status(200).json({
-            message:"Producto creado con éxito!"
+            message:"Producto creado con éxito!",
+            status:"success"
         })
     }catch(error){
         res.status(400).json({
-            error:error.message
+            error:error.message,
+            status:"error"
         })
     }
 }
@@ -36,16 +38,18 @@ module.exports.login=async(req,res)=>{
         if(req.body.username==adminData.username &&
             req.body.password==adminData.password){
                 res.status(200).json({
-                    message:"Login exitoso"
+                    message:"Login exitoso",
+                    status:"success"
                 });
         }else{
-            res.status(500).json({
+            res.status(401).json({
                 message:"Usuario/Contraseña incorrecta intente de nuevo!",
+                status:"error"
             });
         }
         
     }catch(error){
-        res.status(400).json({
+        res.status(500).json({
             error:error.message
         })
     }

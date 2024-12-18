@@ -1,0 +1,15 @@
+// Crear proyecto de React
+npm create vite@latest nombre-proyecto --template react
+// Luego de crear me cambio de directorio a mi proyecto
+cd nombre-proyecto
+// Instalar dependencias
+npm install
+// Ejecutar aplicación npm run dev
+npm run dev
+
+// Instalación de paquetes
+npm install react-router-dom // Para manejar rutas
+npm install axios // Para manejar peticiones
+npm install react-bootsrap // Diseño de componentes
+npm install bootstrap // Diseño
+npm install sweetalert2

@@ -12,4 +12,4 @@ npm install react-router-dom // Para manejar rutas
 npm install axios // Para manejar peticiones
 npm install react-bootsrap // Diseño de componentes
 npm install bootstrap // Diseño
-npm install sweetalert2
+npm install sweetalert2 // Alertas intuitivas
